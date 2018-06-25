@@ -4,10 +4,13 @@ Scam (Stereo Camera)
 A few boilerplate projects to get started with anaglyph stero-pair rendering in Processing.
 
 1. Simple stereo camera example 
+   ![scam_1](images/scam_1)
 
 2. Stereo camera example with common renderer   
+   ![scam_2](images/scam_2)
 
 3. Shader example to combine stereoscopic pictures
+   ![scam_3](images/scam_3)
 
 
 Anaglyph (etymology)
