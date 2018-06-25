@@ -42,13 +42,13 @@ void setup() {
   } 
   
   right.beginDraw();
-  right.background(0);
+  right.background(100);
   right.imageMode(CENTER);
   right.image(right_portion, right.width/2, right.height/2, w, h);
   right.endDraw();
 
   left.beginDraw();
-  left.background(0);
+  left.background(100);
   left.imageMode(CENTER);
   left.image(left_portion, left.width/2, left.height/2, w, h);
   left.endDraw();
