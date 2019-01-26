@@ -39,19 +39,19 @@ void draw() {
     
     left.beginDraw();
     left.pushStyle();
-    left.push();
+    left.pushMatrix();
     scam.apply(left, StereoCamera.LEFT);
     anim.render(left, StereoCamera.LEFT, time);  
-    left.pop();
+    left.popMatrix();
     left.popStyle();
     left.endDraw();
 
     right.beginDraw();
     right.pushStyle();
-    right.push();
+    right.pushMatrix();
     scam.apply(right, StereoCamera.RIGHT);
     anim.render(right, StereoCamera.RIGHT, time);  
-    right.pop();
+    right.popMatrix();
     right.popStyle();
     right.endDraw();
 
@@ -64,10 +64,10 @@ void draw() {
   } else {
     rt.beginDraw();
     rt.pushStyle();
-    rt.push();
+    rt.pushMatrix();
     scam.apply(rt, StereoCamera.CENTER);
     anim.render(rt, StereoCamera.CENTER, time);  
-    rt.pop();
+    rt.popMatrix();
     rt.popStyle();
     rt.endDraw();
   }
