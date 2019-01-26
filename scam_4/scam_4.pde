@@ -28,6 +28,7 @@ void setup() {
   currentAnim = 0; // animation index
   anim = (Anim) createInstance(this, classes.get(currentAnim));
   anim.init();
+  //compose.set("gamma", 1.0);
 }
 
 void draw() {
@@ -91,6 +92,8 @@ void keyReleased() {
     currentAnim = (currentAnim - 1 + classes.size()) % classes.size();
     anim = (Anim) createInstance(this, classes.get(currentAnim));
     anim.init();
+  } else if (key == 's') {
+    stereo = !stereo;
   }
   anim.keyReleased();
 }
