@@ -39,8 +39,5 @@ The examples shown here are a mere assemblage of work done by others:
 * [http://www.3dtv.at/knowhow/anaglyphcomparison_en.aspx](http://www.3dtv.at/knowhow/anaglyphcomparison_en.aspx) 
   Anaglyph Methods Comparison
 
-* [http://www.animesh.me/2011/05/rendering-3d-anaglyph-in-opengl.html](http://www.animesh.me/2011/05/rendering-3d-anaglyph-in-opengl.html) 
-  Rendering anaglyph in OpenGL
-
 * [https://vimeo.com/62505109](https://vimeo.com/62505109) 
   A Processing example with more resources in the comment area
