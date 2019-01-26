@@ -1,3 +1,7 @@
+ /**
+  * Simple animation class to extend (don't implement a cosntructor, use init() instead.
+  * The main sketch will forward all the input events, 
+  */
  class Anim{
   Anim(){
   }

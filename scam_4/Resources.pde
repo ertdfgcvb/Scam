@@ -1,4 +1,7 @@
-
+/**
+ * Class to store already loaded resources in a map.
+ */
+ 
 class Resources {
   private HashMap <String, PImage> images; 
   private HashMap <String, PFont> fonts; 

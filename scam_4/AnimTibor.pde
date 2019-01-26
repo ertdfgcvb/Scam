@@ -10,7 +10,7 @@ public class AnimTibor extends Anim {
   float increment = 0.02;
 
   ArrayList<TParticle> particles;
-
+    
   void init() {  
     pos = new PVector();
     rot = new PVector();

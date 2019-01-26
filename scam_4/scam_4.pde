@@ -59,8 +59,9 @@ void draw() {
     compose.set("right", right);
 
     rt.beginDraw();
+    rt.background(0);
     rt.filter(compose);
-    rt.endDraw();
+    rt.endDraw();    
   } else {
     rt.beginDraw();
     rt.pushStyle();
@@ -72,7 +73,7 @@ void draw() {
     rt.endDraw();
   }
   
-  background(0);
+  background(80);
   image(rt, 10, 10, rt.width * 0.5, rt.height * 0.5);
 }
 
@@ -81,15 +82,15 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  if (keyCode == RIGHT) {
+  if (key == '.') {
     currentAnim = (currentAnim + 1) % classes.size();
     anim = (Anim) createInstance(this, classes.get(currentAnim));
     anim.init();
-  } else if (keyCode == LEFT) {
+  } else if (keyCode == ',') {
     currentAnim = (currentAnim - 1 + classes.size()) % classes.size();
     anim = (Anim) createInstance(this, classes.get(currentAnim));
     anim.init();
-  } else if (key == 's') {
+  } else if (key == '-') {
     stereo = !stereo;
   }
   anim.keyReleased();
