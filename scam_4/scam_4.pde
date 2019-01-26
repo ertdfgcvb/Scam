@@ -1,5 +1,5 @@
 PGraphics left, right;
-PGraphics rt1;  // render target
+PGraphics rt;  // render target
 PShader compose;
 StereoCamera scam;
 Resources res;
@@ -15,9 +15,9 @@ void setup() {
 
   res = new Resources(this);
   scam = new StereoCamera(); 
-  rt1 = createGraphics(1920, 1080, P3D);
-  left = createGraphics(rt1.width, rt1.height, P3D);
-  right = createGraphics(rt1.width, rt1.height, P3D);
+  rt = createGraphics(1920, 1080, P3D);
+  left = createGraphics(rt.width, rt.height, P3D);
+  right = createGraphics(rt.width, rt.height, P3D);
 
   compose = loadShader("comp.glsl");  
 
@@ -58,22 +58,22 @@ void draw() {
     compose.set("left", left);
     compose.set("right", right);
 
-    rt1.beginDraw();
-    rt1.filter(compose);
-    rt1.endDraw();
+    rt.beginDraw();
+    rt.filter(compose);
+    rt.endDraw();
   } else {
-    rt1.beginDraw();
-    rt1.pushStyle();
-    rt1.push();
-    scam.apply(rt1, StereoCamera.CENTER);
-    anim.render(rt1, StereoCamera.CENTER, time);  
-    rt1.pop();
-    rt1.popStyle();
-    rt1.endDraw();
+    rt.beginDraw();
+    rt.pushStyle();
+    rt.push();
+    scam.apply(rt, StereoCamera.CENTER);
+    anim.render(rt, StereoCamera.CENTER, time);  
+    rt.pop();
+    rt.popStyle();
+    rt.endDraw();
   }
   
   background(0);
-  image(rt1, 10, 10, rt1.width * 0.5, rt1.height * 0.5);
+  image(rt, 10, 10, rt.width * 0.5, rt.height * 0.5);
 }
 
 void keyPressed() {
