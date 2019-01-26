@@ -15,7 +15,7 @@ void setup() {
 
   res = new Resources(this);
   scam = new StereoCamera(); 
-  rt1 = createGraphics(800, 600, P3D);
+  rt1 = createGraphics(1920, 1080, P3D);
   left = createGraphics(rt1.width, rt1.height, P3D);
   right = createGraphics(rt1.width, rt1.height, P3D);
 
@@ -33,11 +33,10 @@ void setup() {
 
 void draw() {
 
-
   int time = millis();
 
   if (stereo) {
-
+    
     left.beginDraw();
     left.pushStyle();
     left.push();
@@ -63,20 +62,18 @@ void draw() {
     rt1.filter(compose);
     rt1.endDraw();
   } else {
-    left.beginDraw();
-    left.pushStyle();
-    left.push();
-    scam.apply(left, StereoCamera.CENTER);
-    anim.render(left, StereoCamera.CENTER, time);  
-    left.pop();
-    left.popStyle();
-    left.endDraw();
     rt1.beginDraw();
-    rt1.image(left, 0, 0);
+    rt1.pushStyle();
+    rt1.push();
+    scam.apply(rt1, StereoCamera.CENTER);
+    anim.render(rt1, StereoCamera.CENTER, time);  
+    rt1.pop();
+    rt1.popStyle();
     rt1.endDraw();
   }
+  
   background(0);
-  image(rt1, 10, 10);
+  image(rt1, 10, 10, rt1.width * 0.5, rt1.height * 0.5);
 }
 
 void keyPressed() {
