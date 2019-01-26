@@ -10,7 +10,7 @@ A few boilerplate examples to get started with anaglyph stero-pair rendering in 
   ![scam_2](images/scam_2.png)
 
 3. Stereo camera example with common renderer  
-  ![scam_3](images/scam_4.png)
+  ![scam_3](images/scam_3.png)
 
 4. Scene example
 
