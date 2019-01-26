@@ -35,7 +35,6 @@ public class AnimCube extends Anim {
     target.box(l * 3, l, l);
     target.box(l, l * 3, l);
     target.box(l, l, l * 3);
-    target.endDraw();
   }  
   void keyPressed() {
     if (keyCode < keys.length) keys[keyCode] = true;
