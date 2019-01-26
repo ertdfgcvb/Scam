@@ -2,6 +2,7 @@
  * @title: Cube
  * @author: Andreas
  */
+ 
 public class AnimCube extends Anim {
   PVector pos, rot;
   boolean wireframe = true;
