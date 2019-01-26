@@ -1,5 +1,9 @@
-public class AnimRandomBoxes extends Anim {
+/**
+ * @title: RandomBoxes
+ * @author: Andreas
+ */
 
+public class AnimRandomBoxes extends Anim {
 
   void init() {
   }
@@ -13,10 +17,12 @@ public class AnimRandomBoxes extends Anim {
     target.rotateY(time * 0.00052);
     target.rotateZ(time * 0.00061);
     randomSeed(0);
-    for (int i=0; i<500; i++) {
-      float x = random(-500, 500);
-      float y = random(-500, 500);
-      float z = random(-500, 500);
+    float w = target.width * 0.4;
+    for (int i=0; i<1000; i++) {
+
+      float x = random(-w, w);
+      float y = random(-w, w);
+      float z = random(-w, w);
 
       target.pushMatrix();
       target.translate(x, y, z);

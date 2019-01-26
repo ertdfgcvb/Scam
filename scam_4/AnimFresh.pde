@@ -1,3 +1,7 @@
+/**
+ * @title: Fresh
+ * @author: Andreas
+ */
 public class AnimFresh extends Anim {
 
   PImage f;  

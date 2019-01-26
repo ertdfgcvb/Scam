@@ -1,3 +1,7 @@
+/**
+ * @title: Eye
+ * @author: Andreas
+ */
 public class AnimEye extends Anim {
   PImage e;
 
