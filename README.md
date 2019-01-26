@@ -3,20 +3,22 @@ Scam (Stereo Camera)
 
 A few boilerplate examples to get started with anaglyph stero-pair rendering in Processing.
 
-1. Simple stereo camera example  
+1. Example to combine existing stereoscopic pictures  
   ![scam_1](images/scam_1.png)
 
-2. Stereo camera example with common renderer  
+2. Stereo camera example  
   ![scam_2](images/scam_2.png)
 
-3. Shader example to combine stereoscopic pictures  
-  ![scam_3](images/scam_3.png)
+3. Stereo camera example with common renderer  
+  ![scam_3](images/scam_4.png)
+
+4. Scene example
 
 
 Anaglyph (etymology)
 --------------------
 
-From Ancient Greek ἀναγλυφή (anagluphḗ, “work in low relief”); from ana- up + glyphein carve out
+From Ancient Greek ἀναγλυφή (anagluphḗ, “work in low relief”); from ana (up) + glyphein (to carve out)
 
 Noun
 Anaglyph (plural anaglyphs)

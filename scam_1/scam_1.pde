@@ -1,96 +1,69 @@
 /**
- * An example of a scene rendered with the separation for red/cyan glasses.
+ * An example of existing stereoscopic image composition.
+ * Image source: 
+ * https://en.wikipedia.org/wiki/File:Ferris_Wheel_from_balcony_of_Illinois_Building._Louisiana_Purchase_Exposition,_St._Louis,_by_Keystone_View_Company.jpg
  *
- * Keyboard:
- *     DOWN/UP    decrease/increase z (rendering only)
- *
- * Mouse:
- *     CLICK      toggle wireframe mode
- *
- * @author Andreas Gysin
+ * Keyboard
+ *   g/h : decrease/increase gamma
  */
- 
-PGraphics left, right;
-PShader scamShader;
-StereoCamera scam;
 
-PVector pos, rot;
-boolean wireframe = true;
-
+PShader compose;                   // Shader used to merge the two textures.
+float gamma = 1.4;                 // Gamma (uniform).
 boolean[] keys = new boolean[256]; // Key state.
 
 void setup() {
-  size(800, 600, P3D);  
+  size(800, 600, P3D);
   pixelDensity(displayDensity());  
 
-  scam = new StereoCamera();  
-  left = createGraphics(width, height, P3D);
-  right = createGraphics(width, height, P3D);
+  PGraphics left = createGraphics(width, height, P3D);
+  PGraphics right = createGraphics(width, height, P3D);
+  compose = loadShader("comp.glsl");
+  compose.set("left", left);
+  compose.set("right", right);  
+  
+  PImage img = loadImage("Ferris_Wheel_from_balcony_of_Illinois_Building._Louisiana_Purchase_Exposition,_St._Louis,_by_Keystone_View_Company.jpg");
+ 
+  // Copy the left and right portions of the image:
+  PImage left_portion = img.get(258, 79, 1100, 1150);  
+  PImage right_portion = img.get(1368, 79, 1100, 1150); 
+ 
+  // Calculate the aspect ratio to fit the image into the sketch window:
+  float a = (float) left_portion.width / left_portion.height;
+  float b = (float) width / height;
+  float w, h;
+  if (a > b) {
+    w = width;
+    h = a * width;
+  } else {
+    w = a * height;
+    h = height;
+  } 
+  
+  right.beginDraw();
+  right.background(100);
+  right.imageMode(CENTER);
+  right.image(right_portion, right.width/2, right.height/2, w, h);
+  right.endDraw();
 
-  scamShader = loadShader("scam.glsl");
-  scamShader.set("left", left);
-  scamShader.set("right", right);  
-
-  pos = new PVector(width/2, height/2, -500);
-  rot = new PVector(0, 0, 0);
+  left.beginDraw();
+  left.background(100);
+  left.imageMode(CENTER);
+  left.image(left_portion, left.width/2, left.height/2, w, h);
+  left.endDraw();
 }
 
 void draw() {
-  
-  // Position vector
-  if (keys[UP]) {
-    pos.z += 10;
-    println("pos = " + pos);
-  } else if (keys[DOWN]) {
-    pos.z -= 10;
-    println("pos = " + pos);
+  if (keys['H']) {
+    gamma += 0.02;
+    compose.set("gamma", gamma);
+    println("gamma: " + gamma);
+  } else if (keys['G']) {
+    gamma = max(gamma - 0.02, 0);
+    compose.set("gamma", gamma);
+    println("gamma: " + gamma);
   }
-  
-  // Rotation vector (smoothed)
-  rot.x += ((height/2 - mouseY) * 0.01 - rot.x) * 0.1 ;
-  rot.y += ((width/2 - mouseX) * 0.01 - rot.y) * 0.1;
 
-  float l = 200;  // Size of the box.
-
-  // Right eye
-  right.beginDraw();
-  scam.apply(right, StereoCamera.RIGHT);
-  right.translate(pos.x, pos.y, pos.z);
-  right.background(100);
-  if (wireframe) {
-    right.noFill();
-  } else {
-    right.fill(200);
-  }
-  right.stroke(0);
-  right.rotateX(rot.x);
-  right.rotateY(rot.y);
-  right.rotateZ(rot.y);
-  right.box(l * 3, l, l);
-  right.box(l, l * 3, l);
-  right.box(l, l, l * 3);
-  right.endDraw();
-
-  // Left eye
-  left.beginDraw();
-  scam.apply(left, StereoCamera.LEFT);
-  left.translate(pos.x, pos.y, pos.z);
-  left.background(100);
-  if (wireframe) {
-    left.noFill();
-  } else {
-    left.fill(200);
-  }
-  left.stroke(0);
-  left.rotateX(rot.x);
-  left.rotateY(rot.y);
-  left.rotateZ(rot.y);    
-  left.box(l * 3, l, l);
-  left.box(l, l * 3, l);
-  left.box(l, l, l * 3);
-  left.endDraw();
-
-  filter(scamShader);
+  filter(compose);
 }
 
 void keyPressed() {
@@ -99,8 +72,4 @@ void keyPressed() {
 
 void keyReleased() {
   if (keyCode < keys.length) keys[keyCode] = false;
-}
-
-void mousePressed() {
-  wireframe = !wireframe;
 }

@@ -4,8 +4,6 @@
  *
  * Original code:
  * http://www.animesh.me/2011/05/rendering-3d-anaglyph-in-opengl.html
- *
- * @author Andreas Gysin (transcode)
  */
 
 class StereoCamera {
