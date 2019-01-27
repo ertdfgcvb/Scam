@@ -23,8 +23,8 @@ public class AnimText extends Anim {
 
   void init() { 
 
-    font1 = loadFont("Text/Alegreya-BoldItalic-48.vlw");  
-    font2 = loadFont("Text/Executive-35Thin-48.vlw");  
+    font1 = res.loadFont("Text/Alegreya-BoldItalic-48.vlw");  
+    font2 = res.loadFont("Text/Executive-35Thin-48.vlw");  
     seed = millis();
 
   }
