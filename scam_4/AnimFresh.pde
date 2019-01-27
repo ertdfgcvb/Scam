@@ -5,12 +5,6 @@
  
 public class AnimFresh extends Anim {
 
-  PImage f;  
-
-  void init() {
-    f = res.loadImage("Fresh/f.png");
-  }
-
   void render(PGraphics target, int eye, int millis) {
 
     float cx = target.width/2 + cos(frameCount*0.042) * 60;
@@ -42,14 +36,10 @@ public class AnimFresh extends Anim {
     //float r = map(cos(frameCount * 0.19), -1, 1, 0, 255);
     //float g = map(cos(frameCount * 0.20), -1, 1, 0, 255);
     //float b = map(cos(frameCount * 0.21), -1, 1, 0, 255);      
-
     //s.disableStyle();
     //target.fill(r,g,b); 
-    //target.shape(s, 0, 0, 300, 100);
+    //target.shape(fresh, 0, 0, 300, 100);
 
-    //target.tint(r, g, b);
-    target.image(f, -f.width/2, -f.height/2);
-    //target.noTint();
     target.popMatrix();
   }
 

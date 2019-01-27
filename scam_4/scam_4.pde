@@ -10,8 +10,8 @@ Anim anim;
 
 void setup() {  
   //fullScreen(P3D);
-  size(1000, 700, P3D);
-  //pixelDensity(displayDensity());  
+  size(1000, 720, P3D);  
+  pixelDensity(displayDensity());  
 
   res = new Resources(this);
   scam = new StereoCamera(); 
@@ -22,13 +22,14 @@ void setup() {
   compose = loadShader("comp.glsl");  
 
   classes = getClasses(this, "Anim");
-  println("............");
   for (Class c : classes) println("Anim class: " + c.getSimpleName());
 
   currentAnim = 0; // animation index
   anim = (Anim) createInstance(this, classes.get(currentAnim));
   anim.init();
-  //compose.set("gamma", 1.0);
+  
+  compose.set("gamma", 1.4); 
+  textFont(loadFont("font.vlw"));
 }
 
 void draw() {
@@ -73,8 +74,22 @@ void draw() {
     rt.endDraw();
   }
   
+  // local preview:
   background(80);
-  image(rt, 10, 10, rt.width * 0.5, rt.height * 0.5);
+  float m = 20; // margin;
+  float w = width - m*2;
+  float h = w / rt.width * rt.height;
+  image(rt, m, m, w, h);
+  
+  // info
+  String out = "";
+  out += "FPS                : " + round(frameRate) + "\n";
+  out += "Render target size : " + rt.width + "x" + rt.height + "\n";
+  out += "Current instance   : " + classes.get(currentAnim).getSimpleName() + " [" + currentAnim + "/" + classes.size() + "]\n";
+  out += "LEFT/RIGHT         : change instance\n";
+  out += ".                  : toggle stereoscopic view\n";
+  text(out, m, h + m * 3);
+  
 }
 
 void keyPressed() {
@@ -82,15 +97,15 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  if (key == '.') {
-    currentAnim = (currentAnim + 1) % classes.size();
+  if (keyCode == RIGHT) {
+    currentAnim = (currentAnim + 1) % classes.size();    
     anim = (Anim) createInstance(this, classes.get(currentAnim));
-    anim.init();
-  } else if (keyCode == ',') {
+    anim.init();    
+  } else if (keyCode == LEFT) {
     currentAnim = (currentAnim - 1 + classes.size()) % classes.size();
     anim = (Anim) createInstance(this, classes.get(currentAnim));
     anim.init();
-  } else if (key == '-') {
+  } else if (key == '.') {
     stereo = !stereo;
   }
   anim.keyReleased();

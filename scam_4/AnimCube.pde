@@ -30,7 +30,7 @@ public class AnimCube extends Anim {
       rot.y += ((width/2 - mouseX) * 0.01 - rot.y) * 0.1;
     }
 
-    float l = target.height * 0.2;
+    float l = map(sin(frameCount*0.01), -1, 1, target.height*0.1, target.height*0.25);
     target.background(100);
     target.translate(pos.x, pos.y, pos.z);
     target.stroke(0);

@@ -1,6 +1,7 @@
 /**
  * @title: RandomBoxes
  * @author: Andreas
+ * ...not really an anaglyph ;)
  */
 
 public class AnimStrobo extends Anim {
@@ -9,7 +10,7 @@ public class AnimStrobo extends Anim {
 
   void render(PGraphics target, int eye, int time) {        
     
-    float s = map(sin(time * 0.001), -1, 1, 0.999, 1.1);
+    float s = map(sin(time * 0.001), -1, 1, 1.01, 1.1);
     target.pushMatrix();
     //target.resetMatrix();
     target.translate(target.width/2, target.height/2);
@@ -19,15 +20,17 @@ public class AnimStrobo extends Anim {
 
     
     target.fill(frameCount % 2 * 255);     
-    //target.lights();
-    target.translate(target.width/2, target.height/2);
-    target.rotateX(time * 0.0011);
-    target.rotateY(time * 0.0017);
-    target.rotateZ(time * 0.0021);
     target.noStroke();
-    float tx = map(sin(time * 0.005), -1, 1, target.height * 0.1, target.height * 0.4);
-    target.translate(tx, 0, 0);    
-    target.sphere(target.height * 0.2);   
+    float x = cos(time * 0.00027) * target.width * 0.3 + target.width / 2;
+    float y = cos(time * 0.00031) * target.height * 0.3 + target.height / 2;
+    float z = map(cos(time * 0.0010), -1, 1, 0, 300);
+    float d = map(cos(time * 0.0021), -1, 1, target.height * 0.1, target.height * 0.4);
+    float r = cos(time * 0.0003) * 10;
+    target.noStroke();
+    target.translate(x, y, z);
+    target.rotate(r);
+    target.rect(-d/10, -d/2, d/5, d);   
+    target.rect(-d/2, -d/10, d, d/5);
     
     
   }
