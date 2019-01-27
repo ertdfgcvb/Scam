@@ -34,9 +34,8 @@ public class AnimText extends Anim {
 
     target.textSize(40);
 
-    textAlign(CENTER);
-    randomSeed(seed);
-    smooth();
+    target.textAlign(CENTER);
+    randomSeed(seed);    
     for (int i=0; i<phrase1.length; i++) {
       target.pushMatrix();
       target.textFont(font2); 
