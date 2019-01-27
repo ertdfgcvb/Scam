@@ -1,5 +1,7 @@
-// @title: AnimParallax
-// @author: Sonia Parani, Matthieu Minguet, Karian Før
+/**
+ * @title: AnimParallax
+ * @author: Sonia Parani, Matthieu Minguet, Karian Før
+ */
 
 public class AnimParallax extends Anim {
   PShape i1;

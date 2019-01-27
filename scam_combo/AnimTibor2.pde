@@ -1,5 +1,5 @@
 /**
- * @title: AnimTibor
+ * @title: AnimTibor2
  * @author: Tibor
  */
 
