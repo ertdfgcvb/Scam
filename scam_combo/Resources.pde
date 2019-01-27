@@ -14,6 +14,11 @@ class Resources {
     shapes = new HashMap();
     this.parent = parent;
   }
+  
+  int cacheSize(){
+    
+    return images.size() + fonts.size() + shapes.size();
+  }
 
   public PImage loadImage(String str) {
     if (!images.containsKey(str)) {

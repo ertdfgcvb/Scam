@@ -86,6 +86,7 @@ void draw() {
   out += "FPS                : " + round(frameRate) + "\n";
   out += "Render target size : " + rt.width + "x" + rt.height + "\n";
   out += "Current instance   : " + classes.get(currentAnim).getSimpleName() + " [" + currentAnim + "/" + classes.size() + "]\n";
+  out += "Cached resources   : " + res.cacheSize() + "\n";
   out += "LEFT/RIGHT         : change instance\n";
   out += ".                  : toggle stereoscopic view\n";
   text(out, m, h + m * 3);
