@@ -1,4 +1,16 @@
-PGraphics left, right;
+/**
+ * A collection of the projects done 
+ * during a workshop at HEAD Geneva
+ * Processing Community Day
+ * 26.01.2019
+ * 
+ * Keyboard
+ *   LEFT/RIGHT : next/previous project
+ *   .          : toggle stereo
+ * (Check indiviudal classes for extra keys)
+ */
+ 
+ PGraphics left, right;
 PGraphics rt;  // render target
 PShader compose;
 StereoCamera scam;
