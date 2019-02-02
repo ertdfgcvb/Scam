@@ -33,11 +33,11 @@ Resources
 
 The examples shown here are a mere assemblage of work done by others:
 
-* [http://paulbourke.net/stereographics/stereorender](http://paulbourke.net/stereographics/stereorender) 
+* [http://paulbourke.net/stereographics/stereorender](http://paulbourke.net/stereographics/stereorender)  
   Calculating Stereo Pairs
 
-* [http://www.3dtv.at/knowhow/anaglyphcomparison_en.aspx](http://www.3dtv.at/knowhow/anaglyphcomparison_en.aspx) 
+* [http://www.3dtv.at/knowhow/anaglyphcomparison_en.aspx](http://www.3dtv.at/knowhow/anaglyphcomparison_en.aspx)  
   Anaglyph Methods Comparison
 
-* [https://vimeo.com/62505109](https://vimeo.com/62505109) 
+* [https://vimeo.com/62505109](https://vimeo.com/62505109)  
   A Processing example with more resources in the comment area
